@@ -1,0 +1,1 @@
+Bem-vindo ao meu repositório de aprendizado Swift! Aqui, você encontrará informações sobre a minha jornada de migração do conhecimento em JavaScript para Swift. Estou no início dessa transição e estou realizando exercícios para aprimorar minhas habilidades na linguagem Swift. Sinta-se à vontade para explorar e acompanhar meu progresso!
