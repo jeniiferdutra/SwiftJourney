@@ -4,7 +4,7 @@ let minhaIdade = 23
 let idadeParente = 27
 
 if minhaIdade > idadeParente {
-  print("É maior")
+  print("É maior.")
 } else {
-  print("É menor")
+  print("É menor.")
 }
