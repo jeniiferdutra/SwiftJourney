@@ -34,8 +34,10 @@ if let name1 { // se tiver um conteudo valido, entao o bloco de codigo é execut
    
 }
 
-if let name1 = name1 { // outra forma que funciona tambem
-    print(name1)
+// outra forma que funciona tambem
+
+if let nameNew = name1 { // se name1 for diferente de nil, so vou criar a const nameNew se o name1 conter um valor
+    print(nameNew)
 } else {
     print("esta variavel n tem valor, ela é nil")
 
