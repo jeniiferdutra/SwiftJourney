@@ -118,4 +118,69 @@ var funcionarios: [String : String] = [
 for (key, value) in funcionarios {
     print("Nome: \(key) = Departamento: \(value)")
 }
+print(" ")
+
+
+// Crie um dicionário que armazene nomes de três animais e seus habitats. Verifique se um animal específico está presente no dicionário e imprima uma mensagem.
+
+let animais: [String : String] = [
+    "Tigre" : "Florestas tropicais",
+    "Elefante" : "Savana",
+    "Baleia" : "Oceano"]
+
+let verificarAnimal = "Tigre"
+
+if animais.keys.contains(verificarAnimal) {
+    print("O \(verificarAnimal) esta presente no dicionairo")
+} else {
+    print("O \(verificarAnimal) nao esta presente no dicionario")
+}
+print(" ")
+
+
+// Crie um dicionário que armazene nomes de três produtos e suas quantidades em estoque. Use um loop para calcular e imprimir a soma total das quantidades.
+
+var produtos2: [String : Int] = [
+    "Lampada" : 90,
+    "Papel" : 54,
+    "Flores" : 28]
+
+var soma2 = 0
+
+for (key, value) in produtos2 {
+    soma2 += value
+}
+print("A soma total das quantidades é \(soma2)")
+print(" ")
+
+
+// Crie um dicionário vazio. Verifique se o dicionário está vazio e imprima uma mensagem adequada.
+
+var dicionario: [String : String] = [:]
+
+if dicionario.isEmpty {
+    print("Dicionario esta vazio")
+} else {
+    print("Dicionario nao vazio")
+}
+print(" ")
+
+
+// Crie dois dicionários, um com nomes de três frutas e suas cores, e outro com nomes de três legumes e suas cores. Combine os dois dicionários em um único dicionário.
+
+var frutas2: [String : String] = [
+    "Morango" : "Vermelho",
+    "Manga" : "Laranja",
+    "Banana" : "Amarela"]
+
+var legumes: [String : String] = [
+    "Beterraba" : "Roxa",
+    "Brocolis" : "Verde",
+    "Tomate" : "Vermelho"]
+
+for (key, value) in legumes {
+    frutas2[key] = value
+}
+
+print(frutas2)
 
