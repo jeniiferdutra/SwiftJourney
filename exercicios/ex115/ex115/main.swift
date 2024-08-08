@@ -7,123 +7,120 @@
 
 import Foundation
 
-// Ao criar dicionários aninhados, é importante garantir que o tipo do valor do dicionário pai permita dicionários como valores. Usar [String: Any] ou [String: [String: Any]] é uma prática comum para permitir essa flexibilidade.
+// Crie um Set de números inteiros: Crie um Set vazio de números inteiros e adicione os números de 1 a 5.
 
-// Crie um dicionário chamado contatos onde a chave é uma String (nome da pessoa) e o valor é um Int (número de telefone). Adicione três contatos ao dicionário.
+var numerosInteiros = Set <Int>()
 
-let contatos: [String : Int] = [
-    "Jenifer" : 11977215865,
-    "Maria" : 11955437681,
-    "Ana" : 11988547612]
-
+numerosInteiros.formUnion(1...12)
+print(numerosInteiros)
 print(" ")
 
+// Crie um Set com os números de 1 a 5 e remova o número 3.
 
-// Comece com um dicionário vazio chamado produtos. Adicione um produto com a chave “nome” e o valor “Caneta”. Atualize o valor do produto para “Lápis”.
-
-var produtos: [String : String] = [:]
-
-produtos["nome"] = "Caneta"
-// Atualizar valor
-produtos["nome"] = "Lapis"
-
-print("Dicionario de produtos atualizado: \(produtos)")
+numerosInteiros.remove(3)
+print("Set atualizado: \(numerosInteiros)")
 print(" ")
 
+// Dado um Set de números inteiros, verifique se ele contém o número 2.
 
-// Dado um dicionário idades com as chaves “Alice”, “Bob”, e “Carlos”, remova a chave “Bob” e exiba o dicionário resultante.
-
-var idades: [String : Int] = [
-    "Alice" : 24,
-    "Bob" : 23,
-    "Carlos" : 27]
-
-idades.removeValue(forKey: "Bob")
-print("Dicionario atualizado \(idades)")
-print(" ")
-
-
-// Dado um dicionário estoque com os itens “Maçã”, “Banana”, e “Laranja”, verifique se “Banana” está presente no dicionário.
-
-let frutas: [String : String] = [
-    "Maça" : "Test1",
-    "Banana" : "Test2",
-    "Laranja" : "Test3"]
-
-var verificarValor = "Banana"
-
-if frutas.keys.contains(verificarValor) {
-    print("\(verificarValor) esta presente no dicionario")
+if numerosInteiros.contains(2) {
+    print("Número presente no Set")
 } else {
-    print("\(verificarValor) nao esta presente no dicionario")
+    print("Número inexistente")
+}
+print(" ")
+
+//Crie um Set com os números de 1 a 5 e itere sobre seus elementos, imprimindo cada um deles.
+
+for numero in numerosInteiros {
+    print(numero)
 }
 print(" ")
 
 
-// Dado um dicionário livros com chaves como títulos e valores como autores, obtenha e imprima todas as chaves (títulos) do dicionário.
+// Crie um Set de strings contendo os nomes de frutas e imprima o número de elementos.
 
-var livros: [String : String] = [
-    "Anjos e Demonios" : "Dan Brown",
-    "A culpa é das estrelas" : "John Green",
-    "É assim que acaba" : "Coleen Hoover"]
+let frutas = Set(["Manga", "Uva", "Morango", "Laranja", "Mamao"])
+print(frutas)
 
-for livro in livros.keys {
-    print(livro)
-}
+
+// Crie dois Sets de números inteiros e calcule a união entre eles.
+
+var numerosInteiros2 = Set([6, 7, 8, 9, 10])
+
+let uniao = numerosInteiros.union(numerosInteiros2)
+print(uniao)
 print(" ")
 
 
-// Crie dois dicionários precos1 e precos2, ambos com pares chave-valor de produtos e preços. Combine os dois dicionários em um novo dicionário chamado precosCombinados.
+// Crie dois Sets de números inteiros e calcule a interseção entre eles.
 
-var preco1: [String : Double] = [
-    "Cadeira" : 199.90,
-    "Estante" : 650.00,
-    "Mesa" : 325.50]
+let intersecao = numerosInteiros.intersection(numerosInteiros2)
+print(intersecao)
+print(" ")
 
-var preco2: [String : Double] = [
-    "Sofá" : 2.999,
-    "Cama" : 900.00,
-    "Tapete" : 585.90]
+// Crie dois Sets de números inteiros e calcule a diferença entre eles
 
-var precosCombinados = preco1.merging(preco2) { (current, _) in current } // pode ser usada para a maioria dos casos em que você precisa juntar dois dicionários
-
-for (key, value) in precosCombinados {
-    print("\(key) \(value)")
-}
+let diferenca = numerosInteiros.subtracting(numerosInteiros2)
+print(diferenca)
 print(" ")
 
 
-// Dado um dicionário vendas com produtos e quantidades vendidas, verifique se a quantidade de um produto específico (por exemplo, “Caderno”) é maior que 50.
+// Crie um Set de strings vazio e adicione várias strings de uma só vez.
 
-var produtos2: [String : Int] = [
-    "Caderno" : 51,
-    "Livro" : 55,
-    "Lapis" : 76,
-    "Caneta" : 87]
+var palavras = Set<String>()
+palavras.formUnion(["Teste1", "Teste2", "Teste3", "Teste4", "Teste5"])
 
-if let produto = produtos2["Caderno"], produto > 50 {
-    print("Quantidade de caderno é maior que 50")
+print(palavras)
+print(" ")
+
+
+// Crie um Set de números inteiros e, em seguida, remova todos os elementos.
+
+numerosInteiros.removeAll()
+
+print(numerosInteiros)
+print(" ")
+
+
+// Crie dois Sets de strings e verifique se eles são iguais.
+
+var palavras2 = Set(["Bom dia", "Boa tarde", "Boa noite"])
+
+if palavras == palavras2 {
+    print("Os sets sao iguais")
 } else {
-    print("Quantidade de caderno nao é maior que 50")
+    print("Sets diferente")
 }
 print(" ")
 
 
-// Dado um dicionário despesas onde a chave é uma String (categoria) e o valor é um Double (valor gasto), filtre e crie um novo dicionário com categorias onde o valor gasto é maior que 100.
+// Use a função isDisjoint: Crie dois Sets de números inteiros e verifique se eles não possuem elementos em comum.
 
-var despesas: [String : Double] = [
-    "Internet" : 120.00,
-    "Aluguel" : 900.00,
-    "Agua" : 80.00,
-    "Luz" : 130.00
-]
+let numerosInteiros3 = Set([12, 1, 5, 9, 10])
 
-var valorGasto: [String : Double] = [:]
+if numerosInteiros2.isDisjoint(with: numerosInteiros3) {
+    print("Sets diferentes")
+} else {
+    print("Ambos os sets possuem elementos em comum")
+}
+print(" ")
 
-for (key, value) in despesas {
-    if value > 100 {
-        valorGasto[key] = value
+
+// Crie um Set de números inteiros e filtre os números pares
+
+for numero in numerosInteiros3 {
+    if numero % 2 == 0 {
+        print(numero)
     }
 }
-print("Dicionário de despesas filtrado: \(valorGasto)")
+print(" ")
 
+
+// Crie um Set de strings e verifique se ele está vazio.
+
+if palavras.isEmpty {
+    print("Set vazio")
+} else {
+    print("Set contem elementos")
+}
