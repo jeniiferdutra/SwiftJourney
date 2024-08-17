@@ -185,4 +185,3 @@ struct Data {
 
 let data = Data(dia: 24, mes: 01, ano: 2000)
 print(data.formato())
-print(" ")
