@@ -145,6 +145,151 @@ struct Caixa: Embalavel {
     }
     
 }
-
 let caixa = Caixa(peso: 55.9)
 caixa.embalar()
+
+print(" ")
+
+// Crie um protocolo chamado Brincavel que tenha uma propriedade opcional brinquedoFavorito do tipo String?.
+// Em seguida, crie uma classe Cachorro que adote o protocolo Brincavel. Defina um valor para brinquedoFavorito na instância da classe e imprima uma mensagem com o nome do brinquedo.
+// Dica: Use uma extensão para implementar a propriedade opcional.
+
+protocol Brincavel {
+    var brinquedoFavorito: String? { get set }
+}
+
+class Cachorro: Brincavel {
+    var brinquedoFavorito: String?
+    
+    init(brinquedoFavorito: String? = nil) {
+        self.brinquedoFavorito = brinquedoFavorito
+    }
+}
+
+extension Cachorro {
+    func brincar() {
+        if let brinquedo = brinquedoFavorito {
+            print(brinquedo)
+        } else {
+            print("Brinquedo inexistente")
+        }
+    }
+}
+let cachorro = Cachorro(brinquedoFavorito: "Urso")
+
+cachorro.brincar()
+print(" ")
+
+// Crie um protocolo chamado Descontavel que tenha uma propriedade calculada desconto do tipo Double e um método aplicarDesconto().
+// Crie uma struct Produto que adote o protocolo Descontavel e implemente a lógica para calcular um desconto e aplicá-lo ao preço do produto.
+
+protocol Descontavel {
+    var desconto: Double { get }
+    
+    mutating func aplicarDesconto()
+}
+
+struct Produto2: Descontavel {
+   var valor: Double
+    var desconto: Double
+    
+    mutating func aplicarDesconto() {
+        valor -= valor * desconto / 100
+        
+    }
+}
+let descontavel = Produto2(valor: 95.90, desconto: 20)
+
+print("O produto no valor de \(descontavel.valor) com o desconto de \(descontavel.desconto)%")
+print(" ")
+
+// Crie um protocolo chamado Voluntario que tenha um método ajudar().
+// Crie uma classe base Pessoa que adote o protocolo Voluntario e implemente o método ajudar() de maneira genérica.
+// Crie uma subclasse Medico que sobrescreva o método ajudar() para fornecer uma implementação específica para médicos.
+
+protocol Voluntario {
+    func ajudar()
+}
+
+class Pessoa: Voluntario {
+    func ajudar() {
+        print("Pessoa ajudando de forma genérica")
+    }
+    
+}
+
+class Medico: Pessoa {
+    override func ajudar() {
+        print("Médico ajudando de forma específica")
+    }
+    
+}
+let pessoaVoluntaria = Pessoa()
+pessoaVoluntaria.ajudar()
+
+let medicoVoluntaria = Medico()
+medicoVoluntaria.ajudar()
+
+print(" ")
+
+// Crie um protocolo chamado Identificavel que tenha uma função estática identificar() que retorna um String.
+// Crie uma struct Documento que adote o protocolo Identificavel e implemente a função identificar() para retornar um número de documento fictício.
+
+protocol Identificavel {
+    static func identificar() -> String
+}
+
+struct Documento2: Identificavel {
+    static func identificar() -> String {
+        return "1234-5678-9101-1121"
+    }
+}
+let documento2 = Documento2.identificar()
+
+print("Número do documento \(documento2)")
+print(" ")
+
+// Crie um protocolo Salvavel com um método salvar().
+// Crie uma extensão do protocolo Salvavel para fornecer uma implementação padrão do método salvar(), que simplesmente imprime "Salvando dados...".
+// Crie uma classe Arquivo que adote o protocolo Salvavel sem fornecer uma implementação própria, utilizando a implementação padrão.
+
+protocol Salvavel {
+    func salvar()
+}
+
+extension Salvavel {
+    func salvar() {
+        print("Salvando dados...")
+    }
+}
+
+class Arquivo: Salvavel {}
+
+let arquivo = Arquivo()
+arquivo.salvar()
+print(" ")
+
+
+// Crie um protocolo Inicializavel que exija um inicializador init(nome: String, idade: Int).
+// Crie uma struct Pessoa que adote o protocolo Inicializavel e implemente o inicializador exigido.
+
+protocol Inicializavel {
+    init(nome: String, idade: UInt)
+}
+
+struct Pessoa2: Inicializavel {
+    var nome: String
+    var idade: UInt
+    
+    init(nome: String, idade: UInt) {
+        self.nome = nome
+        self.idade = idade
+    }
+    
+    func pessoa() {
+        print("Nome: \(nome), Idade: \(idade)")
+    }
+}
+
+let person = Pessoa2(nome: "Jenifer", idade: 24)
+person.pessoa()
