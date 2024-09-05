@@ -269,3 +269,300 @@ func validarEntrada(entrada: String?) -> String {
 }
 let entrada = validarEntrada(entrada: nil)
 print(entrada)
+print(" ")
+
+// Crie uma struct chamada Pessoa com as propriedades nome e idade. Adicione um inicializador personalizado que aceita um nome e uma idade como parâmetros. Crie uma instância de Pessoa usando o inicializador personalizado.
+
+struct Pessoa {
+    var nome: String
+    var idade: Int
+    
+    init(nome: String, idade: Int) {
+        self.nome = nome
+        self.idade = idade
+    }
+}
+
+let pessoa = Pessoa(nome: "jenifer", idade: 24)
+print("Nome: \(pessoa.nome), idade: \(pessoa.idade)")
+print(" ")
+
+// Crie uma struct chamada Retangulo com as propriedades largura e altura, ambas do tipo Double. Adicione uma propriedade computada chamada area que calcula e retorna a área do retângulo. Crie uma instância de Retangulo e imprima a área.
+
+struct Retangulo {
+    var largura: Double
+    var altura: Double
+    
+    var area: Double {
+        return largura * altura
+    }
+}
+
+var retangulo = Retangulo(largura: 5.0, altura: 9.5)
+print("Area do retangulo: \(retangulo.area)")
+print(" ")
+
+// ​Crie um programa que contenha uma struct chamada de Person onde tenha as propriedades: nome, idade, altura e peso
+// Agora, crie um método capaz de retornar o valor de IMC para esta pessoa.
+
+struct Person {
+    var nome: String
+    var idade: Int
+    var altura: Double
+    var peso: Double
+    
+    func calcularImc() -> Double {
+        let imc = peso / (altura * altura)
+        return imc
+    }
+}
+
+let person = Person(nome: "Jenifer", idade: 28, altura: 1.60, peso: 55)
+print("Nome: \(person.nome), idade: \(person.idade), IMC: \(person.calcularImc())")
+print(" ")
+
+// Crie uma struct chamada Playlist com uma propriedade musicas que é um array de strings. Adicione um método chamado adicionarMusica que aceita uma string e a adiciona ao array musicas. Crie uma instância de Playlist e adicione algumas músicas a ela.
+
+struct Playlist {
+    var musicas: [String] = []
+
+    mutating func adicionarMusica(musica: String) {
+        musicas.append(musica)
+    }
+}
+
+var playlist = Playlist()
+playlist.adicionarMusica(musica: "West Coast")
+playlist.adicionarMusica(musica: "Cherry")
+playlist.adicionarMusica(musica: "Human Nature")
+
+print("Playlist atualizada: \(playlist.musicas)")
+print(" ")
+
+// Crie uma struct chamada Carro que tenha as seguintes propriedades:
+
+// marca (String)
+// modelo (String)
+// ano (Int)
+// Em seguida, crie uma instância de Carro e imprima os valores de cada propriedade.
+
+struct Carro {
+    var marca: String
+    var modelo: String
+    var ano: Int
+    var estaLigado: Bool
+    
+    var descricaoCompleta: String {
+        return "Marca: \(marca), Modelo: \(modelo), Ano: \(ano)"
+    }
+    
+    func ligar() {
+        print("O carro \(marca) - \(modelo) está ligado.")
+    }
+    
+    mutating func alternarLigadoDesligado() {
+        if estaLigado {
+            print("Carro ligado")
+            estaLigado = true
+        } else {
+            print("Carro desligado")
+            estaLigado = false
+        }
+    }
+}
+var carro = Carro(marca: "Audis", modelo: "Audi RS 3", ano: 2024, estaLigado: false)
+print(carro.descricaoCompleta)
+print(" ")
+
+// Adicione um método à struct Carro chamado ligar que imprima a mensagem "O carro [marca] [modelo] está ligado". Teste esse método chamando-o a partir de uma instância.
+
+carro.ligar()
+
+// Adicione uma propriedade estaLigado (Boolean) à struct Carro e uma função mutável chamada alternarLigadoDesligado() que alterne o estado de estaLigado. Sempre que essa função for chamada, a função deve imprimir "Carro ligado" ou "Carro desligado" com base no estado atual.
+
+carro.alternarLigadoDesligado()
+
+// Crie uma struct chamada Pessoa com as seguintes propriedades:
+
+// nome (String)
+// idade (Int)
+// carro (Carro) - utilize a struct do exercício 1
+// Em seguida, crie uma instância de Pessoa que tenha um carro, e imprima o nome da pessoa e a descrição completa do carro.
+
+struct PersonTwo  {
+    var nome: String
+    var idade: UInt
+    var carro: Carro
+    
+}
+
+var personTwo = PersonTwo(
+    nome: "Jenifer",
+    idade: 24, carro:
+    Carro(marca: "Mercede Benz", modelo: "Mercedes-AMG GT Coupe", ano: 2024, estaLigado: true))
+print(personTwo)
+print(" ")
+
+// Crie uma classe chamada Animal com as seguintes propriedades:
+// nome (String)
+// idade (Int)
+// Adicione um método chamado fazerSom() que imprime "O animal faz um som." Crie uma instância de Animal e chame o método fazerSom().
+
+class Animal {
+    var nome: String
+    var idade: Int
+    
+    init(nome: String, idade: Int) {
+        self.nome = nome
+        self.idade = idade
+    }
+    
+    func fazerSom() {
+        print("O animal faz um som")
+    }
+}
+
+let animal = Animal(nome: "cachorro", idade: 11)
+print("O animal \(animal.nome) com \(animal.idade) anos")
+animal.fazerSom()
+
+// Crie uma classe Cachorro que herda de Animal e sobrescreva o método fazerSom() para que ele imprima "O cachorro late."
+
+class Cachorro: Animal {
+    override func fazerSom() {
+        print("O cachorro late")
+    }
+}
+
+let dog = Cachorro(nome: "Rex", idade: 12)
+print("O cachorro \(dog.nome) com \(dog.idade) anos.")
+dog.fazerSom()
+print(" ")
+
+//  Crie um programa que contenha uma calculadora recebendo somente um único número e um operador (function type). As operações que devem ser feitas são:
+
+// a. numero ao quadrado (ex.: 4 ao quadrado é 16)
+
+// b. o dobro do número (ex.: o dobro de 4 é 8)
+
+func calculadora(numero: Int, operacao: (Int) -> Int) {
+    let resultado = operacao(numero)
+    print("Resultado: \(resultado)")
+}
+calculadora(numero: 4, operacao: { numero in
+    numero * numero
+})
+calculadora(numero: 4) { numero in
+    numero + numero
+}
+
+/*
+ Vamos simular um Login da Netflix por 2 dispositivos: 1 login pela TV e outro pelo iPhone.
+
+ O comportamento esperado na saída deve ser:
+
+ PARA LOGIN TV
+ conectando com email: exemplo@gmail.com
+ dispositivo conectado ["dispositivo": "TV Samsung", "email": "exemplo@gmail.com"]
+ PARA IPHONE
+ conectando com email: exemplo@gmail.com
+ dispositivo conectado ["dispositivo": "iPhone", "email": "exemplo@gmail.com"]
+ Contudo, devemos usar funções parametrizadas para resolver esse problema. Ou seja, semelhante ao exemplo da calculadora com "function type".
+
+
+
+ Passos que podem ajudar na solução:
+
+ 1. Crie uma função chamada netflix que espera como primeiro parâmetro um e-mail e no segundo parâmetro uma function - chame-a de connectDevice.
+
+ Essa function precisa aceitar uma String como parâmetro e retornar um dictionary [String:String].
+
+ func netflix(email: String, connectDevice: (String) -> [String:String]) {
+     // COLOQUE AS EXPRESSOES DE SAIDA PRINT AQUI
+ }
+ 2. Ao iniciar o programa, chamando a função netflix, você deverá passar o e-mail como "exemplo@gmail.com" e uma função sendo o dispositivo. Essa função deve ser capaz de pegar o e-mail e devolver no formato Dictionary como:
+
+ ["dispositivo": "TV Samsung", "email": "exemplo@gmail.com"
+
+ 3. Dentro da função netflix você deverá informar ao usuário com print as seguintes informações:
+
+   3.1. "conectando com o email: <email>”
+
+   3.2. "dispositivo conectado <dictionary>"
+ 
+ */
+
+func netflix(email: String, connectDevice:(String) -> [String : String]) {
+    print("conectado com email: \(email)")
+    let connectiveDeviced = connectDevice(email)
+    print("dispositivo conectado: \(connectiveDeviced)")
+}
+
+func tv(email: String) -> [String:String] {
+    return [
+        "dispositivo" : "TV Samsung",
+        "email" : email,
+    ]
+}
+
+func iphone(email: String) -> [String:String] {
+    return [
+        "dispositivo" : "iPhone",
+        "email" : email,
+    ]
+}
+
+print("PARA LOGIN TV")
+netflix(email: "exemplo@gmail.com", connectDevice: tv(email:))
+
+print("PARA LOGIN IPHONE")
+netflix(email: "exemplo@gmail.com", connectDevice: iphone(email:))
+print(" ")
+
+enum TipoDeCafe {
+    case expresso
+    case cappuccino
+    case latte
+    case mocha
+    
+    func fazerPedido(pedido: TipoDeCafe) -> String {
+        switch self {
+        case .expresso:
+            return "Voce pediu um Expresso"
+        case .cappuccino:
+            return "Voce pediu um Cappuccino"
+        case .latte:
+            return "Voce pediu um latte"
+        case .mocha:
+            return "Voce pediu um Mocha"
+        }
+    }
+}
+
+let cafe: TipoDeCafe = TipoDeCafe.cappuccino
+print(cafe.fazerPedido(pedido: .cappuccino))
+
+// Crie um enum chamado Transporte que contenha os casos: carro, moto, bicicleta e caminhada. Adicione uma propriedade calculada que retorne a velocidade média de cada meio de transporte.
+
+enum Transporte {
+    case carro
+    case moto
+    case bicicleta
+    case caminhada
+    
+    var velocidadeMedia: String {
+        switch self {
+        case .carro:
+            return "40-120 km/h"
+        case .moto:
+            return "50-110 km/h"
+        case .bicicleta:
+            return "15-35 km/h"
+        case .caminhada:
+            return "4-6 km/h"
+        }
+    }
+}
+
+let transporte = Transporte.carro.velocidadeMedia
+print(transporte)
