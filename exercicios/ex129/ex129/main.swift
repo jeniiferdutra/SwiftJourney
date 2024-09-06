@@ -566,3 +566,86 @@ enum Transporte {
 
 let transporte = Transporte.carro.velocidadeMedia
 print(transporte)
+print(" ")
+
+// Crie um enum chamado Jogo com os casos iniciado, emProgresso(nivel: Int), pausado, e terminado(pontuacao: Int). Implemente uma função que receba um valor de Jogo e retorne uma mensagem apropriada dependendo do caso atual do jogo.
+
+enum Jogo {
+    case iniciado
+    case emProgresso(nivel: Int)
+    case pausado
+    case terminado(pontuacao: Int)
+    
+    func statusJogo() -> String {
+        switch self {
+        case .iniciado:
+            return "Jogo iniciado"
+        case .emProgresso(let nivel):
+            return "Jogo esta em progresso \(nivel)%"
+        case .pausado:
+            return "Jogo pausado"
+        case .terminado(let pontuacao):
+            return "Jogo finalizado. Pontuaçao: \(pontuacao)"
+        }
+    }
+}
+
+let jogo = Jogo.emProgresso(nivel: 87)
+print(jogo.statusJogo())
+print(" ")
+
+// Crie um enum chamado CorBarraProgresso com os casos vermelho, amarelo e verde. Adicione um método que retorne a cor correspondente com base em uma porcentagem de progresso.
+
+enum CorBarraProgresso {
+    case vermelho
+    case amarelo
+    case verde
+    
+    static func progresso(porcentagem: Int) -> CorBarraProgresso {
+        switch porcentagem {
+        case 1...50:
+            return .vermelho
+        case 51...80:
+            return .amarelo
+        case 81...100:
+            return .verde
+        default:
+            return .vermelho
+        }
+    }
+}
+
+let progress = CorBarraProgresso.progresso(porcentagem: 98)
+print(progress)
+print(" ")
+
+// Crie um protocolo chamado Descritivel que tenha um método chamado descricao() que retorne uma string. Em seguida, crie duas structs que adotem esse protocolo, como Carro e Pessoa, e implemente o método descricao() em ambas.
+
+protocol Descritivel {
+    func descricao2() -> String
+}
+
+struct Car: Descritivel {
+    var model: String
+    var year: Int
+    var Color: String
+    
+    func descricao2() -> String {
+        return "Modelo: \(model), Ano: \(year), Color: \(Color)"
+    }
+}
+
+struct PersonThree: Descritivel {
+    var name: String
+    var age: Int
+    
+    func descricao2() -> String {
+        return "Nome: \(name), Idade: \(age)"
+    }
+}
+
+let descricao = Car(model: "IX35", year: 2024, Color: "Preto")
+print(descricao.descricao2())
+
+let personthree = PersonThree(name: "jenifer", age: 24)
+print(personthree.descricao2())
